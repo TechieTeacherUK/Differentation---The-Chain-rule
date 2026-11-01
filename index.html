@@ -49,7 +49,7 @@ body.hc [class*=border-slate]{border-color:#000!important}body.hc .bg-slate-100{
 <main class="max-w-4xl mx-auto px-4 py-6">
 <section id="theory" class="space-y-3">
  <div class="ui bg-indigo-50 border border-indigo-200 rounded-lg p-4 text-sm leading-relaxed">
-  <b>How to use this page.</b> Open a topic below and read the short explanation. Under it you will find a diagram you can change. On the brackets slider you are asked to <b>predict first</b>, so decide what you think will happen before you look. The diagram and the working beside it update as you move things.
+  <b>How to use this page.</b> Open each step below. Start with the video, then read the three steps and try the worked examples. Press <b>Show next step</b> in each example to reveal the working one line at a time.
  </div>
  <div id="cards" class="space-y-3"></div>
 </section>
@@ -182,28 +182,24 @@ const TH=[
 <li>$(\cos x)^2$, which is $\cos^2x$: first take the cosine (inner), then square it (outer). Different order, different function.</li>
 <li>$(2x-5)^{10}$: inner $2x-5$, outer "to the power 10".</li></ul>
 <p>With three layers, such as $\sin(e^{x^2})$, work from the outside: $\sin$ is outer, $e^{\dots}$ is the middle, $x^2$ is the innermost.</p>`,''],
-['gear','Step 2: the chain rule, and why it works',String.raw`<p>Give the inner function a name: let $u=$ the inner function. Then $y$ depends on $u$, and $u$ depends on $x$.</p>
-$$\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}$$
-<p>In words, <b>differentiate the outside (copy the inside), then multiply by the derivative of the inside.</b></p>
-<p><b>Why it works, from GCSE.</b> A gradient is rise over run. For small changes $\delta x$, $\delta u$, $\delta y$ the fractions cancel just like GCSE fractions: $\frac{\delta y}{\delta x}=\frac{\delta y}{\delta u}\times\frac{\delta u}{\delta x}$. Shrink the changes and you get the rule. Think of gears: if $u$ moves 2 times as fast as $x$ and $y$ moves 4 times as fast as $u$, then $y$ moves 8 times as fast as $x$.</p>
-<p><b>Check with GCSE methods.</b> $(2x+1)^2=4x^2+4x+1$ differentiates to $8x+4$. The chain rule gives $2(2x+1)\times2=8x+4$. The same.</p>`,'Change the inner gradient $a$ and move $x$. The tangent gradient is always (outer gradient) $\times$ $a$.'],
-['pow','Step 3: a bracket to a power',String.raw`<p>This is the case you will meet most. For $y=(ax+b)^n$ the inner function is $ax+b$, so $\frac{du}{dx}=a$, and the outer rule is the power rule you know, $nu^{n-1}$:</p>
-$$\frac{dy}{dx}=n\,a\,(ax+b)^{n-1}$$
-<p>It also works when the inside is not a straight line: $y=[f(x)]^n$ gives $n[f(x)]^{n-1}\times f'(x)$. A square root is the power $\frac12$, and $\frac1{(\dots)^3}$ is the power $-3$.</p>
-<p>You might think "just multiply out the brackets". For $(2x-5)^{10}$ that takes ages and invites mistakes. The chain rule is quicker.</p>`,'Predict the gradient first. Then check it on the graph.'],
-['std','Step 4: e, sin, cos, ln and layers',String.raw`<p>The same two rules work for any outer function. Differentiate the outside, copy the inside, multiply by the derivative of the inside.</p>
-<ul><li>$e^{f}\to f'e^{f}$ and $\sin f\to f'\cos f$ and $\cos f\to-f'\sin f$ and $\ln f\to\frac{f'}{f}$ and $\tan f\to f'\sec^2f$.</li>
-<li>Special case, a number in front of $x$: $\sin nx\to n\cos nx$, $\cos nx\to-n\sin nx$, $e^{nx}\to ne^{nx}$. The $n$ appears because the inside, $nx$, has derivative $n$.</li></ul>
-<p>The trig results need <b>radians</b>. With three layers, chain once for each layer, as in the video. No graph is needed here: it is all about reading the layers.</p>`,''],
-['rate','Step 5: connected rates of change',String.raw`<p><b>From GCSE:</b> speed is distance divided by time. Here a "rate" is any quantity per second, such as cm per second or cm$^2$ per second.</p>
-<p>If the radius of a ripple grows at $\frac{dr}{dt}$, the area grows at $\frac{dA}{dt}$. The chain rule connects them through $r$:</p>
-$$\frac{dA}{dt}=\frac{dA}{dr}\times\frac{dr}{dt}$$
-<p><b>Method.</b> (1) Write what you are given and what you want. (2) Find a formula linking the two quantities. (3) Differentiate it to get the middle link, such as $\frac{dA}{dr}$. (4) Multiply, substitute, and add units. For the rate the other way round, use $\frac{dy}{dx}=1\div\frac{dx}{dy}$.</p>`,'Change the radius. The radius grows at the same speed, but the area rate changes.'],
-
+['rules','Step 2: what to do with them',String.raw`<p>Use the chain rule: <b>differentiate the outside, copy the inside, then multiply by the derivative of the inside.</b></p>
+$$\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}\qquad\text{where }u=\text{the inner function}$$
+<ol class="list-decimal ml-5 space-y-1 mt-1"><li><b>Start on the outside and work in.</b> Differentiate the outer function first. With three layers, do one layer at a time.</li><li><b>Do not touch the inside.</b> Copy the inner function exactly as it is while you differentiate the outer one.</li><li><b>Chain (multiply)</b> by the derivative of the inner function.</li><li><b>Tidy up.</b> Put the extra factor at the front, and do not multiply out brackets.</li></ol>
+<p>There are two ways to write the same thing. Examples 1 to 3 below use the video's outside-in method. Examples 4 and 5 give the inside a name, $u$, as BBC Bitesize and mathcentre do. Use whichever feels clearer.</p>
+<p>Example: $y=\sin(${I('e^x')})$ has outer $\sin$ and inner $e^x$. So $\frac{dy}{dx}=\cos(e^x)\times e^x$.</p>`,''],
+['recall','Step 3: reminder, what the common functions differentiate to',String.raw`<p>The outer function is always one of these. Learn them. The "something" is the inside, which you copy.</p>
+<div class="overflow-x-auto"><table class="ui w-full text-sm border border-slate-300 mt-2"><thead><tr class="bg-slate-50"><th class="p-2 text-left">Outer function</th><th class="p-2 text-left">Differentiates to</th><th class="p-2 text-left">Then multiply by</th></tr></thead><tbody>
+<tr class="border-t border-slate-200"><td class="p-2">$(\text{something})^n$</td><td class="p-2">$n(\text{something})^{n-1}$</td><td class="p-2">derivative of the something</td></tr>
+<tr class="border-t border-slate-200"><td class="p-2">$e^{\text{something}}$</td><td class="p-2">$e^{\text{something}}$</td><td class="p-2">derivative of the something</td></tr>
+<tr class="border-t border-slate-200"><td class="p-2">$\ln(\text{something})$</td><td class="p-2">$\dfrac{1}{\text{something}}$</td><td class="p-2">derivative of the something</td></tr>
+<tr class="border-t border-slate-200"><td class="p-2">$\sin(\text{something})$</td><td class="p-2">$\cos(\text{something})$</td><td class="p-2">derivative of the something</td></tr>
+<tr class="border-t border-slate-200"><td class="p-2">$\cos(\text{something})$</td><td class="p-2">$-\sin(\text{something})$</td><td class="p-2">derivative of the something</td></tr>
+<tr class="border-t border-slate-200"><td class="p-2">$\tan(\text{something})$</td><td class="p-2">$\sec^2(\text{something})$</td><td class="p-2">derivative of the something</td></tr></tbody></table></div>
+<p class="mt-2 text-sm">Sine, cosine and tangent results only work in <b>radians</b>. Square roots are the power $\frac12$.</p>`,''],
 ['fb','The formula booklet: what you are given and what you must learn',String.raw`<p>You get Edexcel's formulae booklet in the exam. For 9MA0 its Differentiation section is short, and it does <b>not</b> contain the chain rule.</p>
 <div class="grid sm:grid-cols-2 gap-3 mt-3">
 <div class="border border-red-200 bg-red-50 rounded p-3"><b>NOT in the booklet: learn these</b><ul>
-<li>The chain rule $\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}$</li><li>$\frac{d}{dx}(ax+b)^n=na(ax+b)^{n-1}$</li><li>$\frac{d}{dx}e^{kx}=ke^{kx}$ and $\frac{d}{dx}a^{kx}=ka^{kx}\ln a$</li><li>$\frac{d}{dx}\sin kx=k\cos kx$ and $\frac{d}{dx}\cos kx=-k\sin kx$</li><li>$\frac{d}{dx}\ln x=\frac1x$</li><li>The product rule</li><li>Connected rates such as $\frac{dV}{dt}=\frac{dV}{dr}\times\frac{dr}{dt}$ and $\frac{dy}{dx}=1\div\frac{dx}{dy}$</li></ul></div>
+<li>The chain rule $\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}$</li><li>$\frac{d}{dx}(ax+b)^n=na(ax+b)^{n-1}$</li><li>$\frac{d}{dx}e^{kx}=ke^{kx}$ and $\frac{d}{dx}a^{kx}=ka^{kx}\ln a$</li><li>$\frac{d}{dx}\sin kx=k\cos kx$ and $\frac{d}{dx}\cos kx=-k\sin kx$</li><li>$\frac{d}{dx}\ln x=\frac1x$</li><li>The product rule</li></ul></div>
 <div class="border border-emerald-200 bg-emerald-50 rounded p-3"><b>In the booklet</b><ul>
 <li>Differentiation from first principles $f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$</li><li>$\tan kx\to k\sec^2kx$, $\sec kx\to k\sec kx\tan kx$</li><li>$\cot kx\to-k\csc^2kx$, $\csc kx\to-k\csc kx\cot kx$</li><li>The quotient rule $\frac{f(x)}{g(x)}\to\frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}$</li></ul></div></div>
 <p class="mt-3 text-sm">Source: Pearson Edexcel Mathematical formulae and statistical tables, A Level Mathematics, Pure Mathematics, Differentiation (Issue 1, 2017). Check your own copy before the exam.</p>`,''],
@@ -216,72 +212,27 @@ $$\frac{dA}{dt}=\frac{dA}{dr}\times\frac{dr}{dt}$$
 <div class="border border-red-200 bg-red-50 rounded p-3"><b>6. Calculator in degree mode.</b><br>Trig derivatives only work in radians, so use radian mode when you evaluate.</div></div>
 <button onclick="goTab('spot')" class="ui mt-4 rounded-md bg-indigo-900 text-white px-4 py-2 text-sm">Go to Spot the mistake</button>`,'']];
 const TEX={
-gear:[
+rules:[
 {q:String.raw`<b>Worked example 1</b> (from the video). Differentiate $y=\sin(e^{x})$.`,s:[
- ['Step 1: find the layers',String.raw`Outer function: $${O('\\sin(\\ \\ )')}$. Inner function: $${I('e^{x}')}$.`],
- ['Step 2: differentiate the outside, copy the inside',String.raw`The derivative of $\sin(\text{something})$ is $\cos(\text{something})$. Copy the something: $\cos(${I('e^{x}')})$.`],
- ['Step 3: multiply by the derivative of the inside',String.raw`The derivative of $e^{x}$ is $e^{x}$.`],
- ['Step 4: write it neatly',String.raw`$\frac{dy}{dx}=e^{x}\cos(e^{x})$. Putting $e^x$ at the front makes it clear it multiplies the cosine.`]]},
-{q:String.raw`<b>Worked example 2</b> (mathcentre). Differentiate $y=\cos(x^2)$ using $u$.`,s:[
- ['Step 1: let $u$ be the inside',String.raw`$u=${I('x^2')}$, so $y=${O('\\cos u')}$.`],
- ['Step 2: differentiate both',String.raw`$\frac{du}{dx}=2x$ and $\frac{dy}{du}=-\sin u$.`],
- ['Step 3: multiply, then replace $u$',String.raw`$\frac{dy}{dx}=-\sin u\times2x=-2x\sin(x^2)$.`]]},
-{q:String.raw`<b>Worked example 3</b> (mathcentre). Differentiate $y=\cos^2x$, which means $(\cos x)^2$.`,s:[
- ['Step 1: spot the order',String.raw`The cosine happens first, then the squaring. Inner: $${I('\\cos x')}$. Outer: $${O('(\\ \\ )^2')}$.`],
- ['Step 2: apply the rule',String.raw`Let $u=\cos x$, so $y=u^2$. $\frac{dy}{du}=2u$ and $\frac{du}{dx}=-\sin x$.`],
- ['Step 3: multiply',String.raw`$\frac{dy}{dx}=2\cos x\times(-\sin x)=-2\sin x\cos x$.`]]}],
-pow:[
-{q:String.raw`<b>Worked example 1</b> (mathcentre). Differentiate $y=(2x-5)^{10}$.`,s:[
- ['Step 1: it is tempting to expand',String.raw`Multiplying out ten brackets is long and error-prone, so use the chain rule.`],
- ['Step 2: let $u$ be the inside',String.raw`$u=${I('2x-5')}$, so $y=${O('u^{10}')}$. Then $\frac{du}{dx}=2$ and $\frac{dy}{du}=10u^9$.`],
- ['Step 3: multiply, then replace $u$',String.raw`$\frac{dy}{dx}=10u^9\times2=20(2x-5)^9$.`]]},
-{q:String.raw`<b>Worked example 2</b> (from the video). Differentiate $y=(x^3+\cos x)^7$.`,s:[
- ['Step 1: outside first',String.raw`The outer function is "to the power 7": $7(\ \ )^6$. The new power is 6. Copy the inside: $7(${I('x^3+\\cos x')})^6$.`],
- ['Step 2: multiply by the derivative of the inside',String.raw`The derivative of $x^3+\cos x$ is $3x^2-\sin x$.`],
- ['Step 3: write the answer',String.raw`$\frac{dy}{dx}=7(3x^2-\sin x)(x^3+\cos x)^6$. Do not multiply it out.`]]},
-{q:String.raw`<b>Worked example 3.</b> Differentiate $y=\sqrt{4x^2+9}$.`,s:[
- ['Step 1: write as a power',String.raw`$y=(${I('4x^2+9')})^{${O('1/2')}}$, and the inside has derivative $8x$.`],
- ['Step 2: outside, then inside',String.raw`$\frac12(4x^2+9)^{-1/2}\times8x$.`],
- ['Step 3: tidy',String.raw`$\frac{dy}{dx}=\frac{4x}{\sqrt{4x^2+9}}$.`]]},
-{q:String.raw`<b>Worked example 4</b> (BBC Bitesize). Differentiate $y=(2x+4)^3$.`,s:[
+ ['Step 1: find the two functions',String.raw`Outer: $${O('\\sin')}$. Inner: $${I('e^{x}')}$.`],
+ ['Step 2: differentiate the outside, copy the inside',String.raw`$\sin\to\cos$, so we write $\cos(e^x)$.`],
+ ['Step 3: multiply by the derivative of the inside',String.raw`The derivative of $e^x$ is $e^x$. So $\frac{dy}{dx}=e^x\cos(e^x)$.`]]},
+{q:String.raw`<b>Worked example 2</b> (from the video). Differentiate $y=\sin\left(e^{x^2}\right)$. There are three layers.`,s:[
+ ['Step 1: find the layers',String.raw`Outer $${O('\\sin')}$, middle $e^{(\dots)}$, innermost $${I('x^2')}$.`],
+ ['Step 2: outside in, one layer at a time',String.raw`$\sin\to\cos$, copy the inside: $\cos(e^{x^2})$. Next, $e^{\text{something}}\to e^{\text{something}}$. Last, $x^2\to2x$.`],
+ ['Step 3: multiply all three',String.raw`$\frac{dy}{dx}=\cos(e^{x^2})\times e^{x^2}\times2x=2xe^{x^2}\cos(e^{x^2})$.`]]},
+{q:String.raw`<b>Worked example 3</b> (from the video). Differentiate $y=(x^3+\cos x)^7$.`,s:[
+ ['Step 1: find the two functions',String.raw`Outer: "to the power 7". Inner: $${I('x^3+\\cos x')}$.`],
+ ['Step 2: outside first',String.raw`$7(\ \ )^6$, and copy the inside: $7(x^3+\cos x)^6$.`],
+ ['Step 3: multiply by the derivative of the inside',String.raw`The derivative of $x^3+\cos x$ is $3x^2-\sin x$. So $\frac{dy}{dx}=7(3x^2-\sin x)(x^3+\cos x)^6$. Do not multiply it out.`]]},
+{q:String.raw`<b>Worked example 4</b> (BBC Bitesize, using $u$). Differentiate $y=(2x+4)^3$.`,s:[
  ['Step 1: rewrite using $u$',String.raw`$y=${O('u^3')}$ where $u=${I('2x+4')}$.`],
  ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=3u^2$ and $\frac{du}{dx}=2$.`],
- ['Step 3: use the chain rule',String.raw`$\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=3u^2\times2=6u^2$.`],
- ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=6(2x+4)^2$.`]]},
-{q:String.raw`<b>Worked example 5</b> (BBC Bitesize). Differentiate $y=(2x^2+3x+4)^{1/2}$.`,s:[
- ['Step 1: rewrite using $u$',String.raw`$y=${O('u^{1/2}')}$ where $u=${I('2x^2+3x+4')}$.`],
- ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=\frac12u^{-1/2}$ and $\frac{du}{dx}=4x+3$.`],
- ['Step 3: use the chain rule',String.raw`$\frac{dy}{dx}=\frac12u^{-1/2}\times(4x+3)=\frac{4x+3}{2\sqrt u}$.`],
- ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=\frac{4x+3}{2\sqrt{2x^2+3x+4}}$.`]]},
-{q:String.raw`<b>Worked example 6</b> (BBC Bitesize). Differentiate $y=(1+\sin x)^3$.`,s:[
- ['Step 1: rewrite using $u$',String.raw`$y=${O('u^3')}$ where $u=${I('1+\\sin x')}$.`],
- ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=3u^2$ and $\frac{du}{dx}=\cos x$.`],
- ['Step 3: multiply and put $u$ back',String.raw`$\frac{dy}{dx}=3u^2\cos x=3\cos x\,(1+\sin x)^2$.`]]}],
-std:[
-{q:String.raw`<b>Worked example 1</b> (mathcentre). Differentiate $y=\sin5x$.`,s:[
- ['Step 1: identify the layers',String.raw`Inner $u=${I('5x')}$, outer $y=${O('\\sin u')}$.`],
- ['Step 2: differentiate',String.raw`$\frac{du}{dx}=5$ and $\frac{dy}{du}=\cos u$, so $\frac{dy}{dx}=5\cos5x$. The 5 appears at the front because the inside, $5x$, has derivative 5.`]]},
-{q:String.raw`<b>Worked example 2</b> (from the video). Differentiate $y=\sin\left(e^{x^2}\right)$. There are three layers.`,s:[
- ['Step 1: name the layers',String.raw`Outer $${O('\\sin')}$, middle $e^{(\dots)}$, innermost $${I('x^2')}$.`],
- ['Step 2: outside in, one layer at a time',String.raw`$\sin\to\cos$, copy the inside: $\cos(e^{x^2})$. Next layer: $e^{\text{something}}\to e^{\text{something}}$, copy it. Last layer: $x^2\to2x$.`],
- ['Step 3: multiply all three',String.raw`$\frac{dy}{dx}=\cos(e^{x^2})\times e^{x^2}\times2x=2xe^{x^2}\cos(e^{x^2})$.`]]},
-{q:String.raw`<b>Worked example 3</b> (mathcentre). Differentiate $y=\ln(x+\sin x)$ and $y=\tan(x^2)$.`,s:[
- ['Step 1: the ln',String.raw`Inner $x+\sin x$, derivative $1+\cos x$. $\frac{dy}{dx}=\frac{1+\cos x}{x+\sin x}$.`],
- ['Step 2: the tan',String.raw`Inner $x^2$, derivative $2x$. $\tan\to\sec^2$, so $\frac{dy}{dx}=2x\sec^2(x^2)$.`]]},
-{q:String.raw`<b>Worked example 4</b> (BBC Bitesize). Differentiate $y=\sin(3x^2+4)$.`,s:[
- ['Step 1: rewrite using $u$',String.raw`$y=${O('\\sin u')}$ where $u=${I('3x^2+4')}$.`],
- ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=\cos u$ and $\frac{du}{dx}=6x$.`],
- ['Step 3: multiply and put $u$ back',String.raw`$\frac{dy}{dx}=\cos u\times6x=6x\cos(3x^2+4)$.`]]},
-{q:String.raw`<b>Worked example 5</b> (BBC Bitesize). Differentiate $y=(\sin2x)^2$.`,s:[
- ['Step 1: rewrite using $u$',String.raw`$y=${O('u^2')}$ where $u=${I('\\sin2x')}$.`],
- ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=2u$. For $\frac{du}{dx}$ we need the chain rule again: the derivative of $\sin2x$ is $2\cos2x$.`],
- ['Step 3: multiply',String.raw`$\frac{dy}{dx}=2u\times2\cos2x=4u\cos2x$.`],
- ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=4\sin2x\cos2x$.`]]}],
-rate:[{q:String.raw`<b>Worked example.</b> A spherical balloon has volume $V=\frac43\pi r^3$. The radius grows at 0.2 cm/s. Find how fast the volume grows when $r=5$.`,s:[
- ['Step 1: what is given and wanted',String.raw`Given $\frac{dr}{dt}=0.2$. Wanted $\frac{dV}{dt}$ when $r=5$.`],
- ['Step 2: link them',String.raw`$\frac{dV}{dr}=4\pi r^2$, and $\frac{dV}{dt}=\frac{dV}{dr}\times\frac{dr}{dt}$.`],
- ['Step 3: substitute',String.raw`$4\pi\times25\times0.2=20\pi$.`],
- ['Step 4: answer with units',String.raw`The volume grows at $20\pi\approx62.8$ cm$^3$/s.`]]}]};
+ ['Step 3: chain rule, then put $u$ back',String.raw`$\frac{dy}{dx}=3u^2\times2=6u^2=6(2x+4)^2$.`]]},
+{q:String.raw`<b>Worked example 5</b> (mathcentre). Differentiate $y=\cos(x^2)$.`,s:[
+ ['Step 1: let $u$ be the inside',String.raw`$u=${I('x^2')}$, so $y=${O('\\cos u')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{du}{dx}=2x$ and $\frac{dy}{du}=-\sin u$.`],
+ ['Step 3: multiply, then put $u$ back',String.raw`$\frac{dy}{dx}=-\sin u\times2x=-2x\sin(x^2)$.`]]}]};
 
 $('#cards').innerHTML=TH.map((t,i)=>`<details class="bg-white rounded-lg border border-slate-200" data-w="${t[0]}" ${i==0?'open':''}><summary class="ui flex items-center gap-3 p-4 font-semibold text-indigo-950"><span class="chev text-indigo-500">▶</span>${t[1]}</summary>
 <div class="px-5 pb-5 text-[15px] leading-relaxed"><div class="body">${t[2]}</div>
@@ -295,29 +246,30 @@ $$('#cards details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)drawA
 
 /* ---------- worked examples ---------- */
 const EX=[
-{t:'Example 1 · Layers, outside in (from the video)',m:4,q:String.raw`Differentiate $y=\tan\!\left(\dfrac{t}{1+t^2}\right)$ with respect to $t$. [4 marks]`,
- s:[['Hint',String.raw`Two layers: $\tan$ on the outside, the fraction on the inside. Differentiate $\tan$ first and copy the fraction. The inside needs the quotient rule, which is in the formulae booklet.`],
- ['Working: outside',String.raw`$\tan\to\sec^2$, so we get $\sec^2\!\left(\frac{t}{1+t^2}\right)$. Copy the inside.`],
- ['Working: the inside by the quotient rule',String.raw`$\frac{d}{dt}\frac{t}{1+t^2}=\frac{(1+t^2)(1)-t(2t)}{(1+t^2)^2}=\frac{1-t^2}{(1+t^2)^2}$.`],
- ['Working: multiply',String.raw`$\frac{dy}{dt}=\frac{1-t^2}{(1+t^2)^2}\sec^2\!\left(\frac{t}{1+t^2}\right)$.`]]},
-{t:'Example 2 · Several functions of a function (mathcentre style)',m:6,q:String.raw`Differentiate each by inspection.<br>(a) $y=(2-x^5)^9$ [2 marks]<br>(b) $y=\ln(x+\sin x)$ [2 marks]<br>(c) $y=\sin(x+e^x)$ [2 marks]`,
+{t:'Example 1 · Several functions of a function (mathcentre style)',m:6,q:String.raw`Differentiate each by inspection.<br>(a) $y=(2-x^5)^9$ [2 marks]<br>(b) $y=\ln(x+\sin x)$ [2 marks]<br>(c) $y=\sin(x+e^x)$ [2 marks]`,
  s:[['Hint for (a)',String.raw`Inside is $2-x^5$. Outside is "to the power 9".`],
  ['Working for (a)',String.raw`$9(2-x^5)^8\times(-5x^4)=-45x^4(2-x^5)^8$.`],
  ['Hint for (b)',String.raw`Outside is $\ln$, which gives "one over the inside". Multiply by the derivative of the inside.`],
  ['Working for (b)',String.raw`$\frac{1}{x+\sin x}\times(1+\cos x)=\frac{1+\cos x}{x+\sin x}$.`],
  ['Working for (c)',String.raw`$\sin\to\cos$, copy the inside, multiply by the inside derivative $1+e^x$: $(1+e^x)\cos(x+e^x)$.`]]},
-{t:'Example 3 · Tangent and normal',m:6,q:String.raw`The curve $C$ has equation $y=(2x-1)^3$. The point $P(1,1)$ lies on $C$.<br>(a) Find $\frac{dy}{dx}$. [2 marks]<br>(b) Find the equation of the tangent at $P$. [2 marks]<br>(c) Find the equation of the normal at $P$. [2 marks]`,
+{t:'Example 2 · Tangent and normal',m:6,q:String.raw`The curve $C$ has equation $y=(2x-1)^3$. The point $P(1,1)$ lies on $C$.<br>(a) Find $\frac{dy}{dx}$. [2 marks]<br>(b) Find the equation of the tangent at $P$. [2 marks]<br>(c) Find the equation of the normal at $P$. [2 marks]`,
  s:[['Hint for (a)',String.raw`The inside is $2x-1$. Differentiate the outside, leave the bracket, then multiply by the gradient of the inside.`],
  ['Working for (a)',String.raw`$\frac{dy}{dx}=3(2x-1)^2\times2=6(2x-1)^2$.`],
  ['Hint for (b)',String.raw`Find the gradient at $x=1$, then use $y-y_1=m(x-x_1)$ from GCSE.`],
  ['Working for (b)',String.raw`At $x=1$: $m=6(1)^2=6$. Tangent: $y-1=6(x-1)$, so $y=6x-5$.`,v=>{const f=x=>(2*x-1)**3;plot(v,[{f,c:'#4338ca'}],{fit:fit([[f,-.2,1.7]],[P(1,1,'P')]),segs:[tgs(6,-5,.3,1.7)],pts:[P(1,1,'P')]})}],
  ['Hint for (c)',String.raw`The normal is at right angles to the tangent, so its gradient is $-1\div6$.`],
  ['Working for (c)',String.raw`$y-1=-\frac16(x-1)$, so $6y+x=7$. Check: $P$ gives $6+1=7$. ✓`]]},
-{t:'Example 4 · Connected rates',m:4,q:String.raw`Oil spreads in a circle on water. The area $A$ cm$^2$ grows at 12 cm$^2$/s. Find the rate of increase of the radius when $r=3$. [4 marks]`,
+{t:'Example 3 · Connected rates',m:4,q:String.raw`Oil spreads in a circle on water. The area $A$ cm$^2$ grows at 12 cm$^2$/s. Find the rate of increase of the radius when $r=3$. [4 marks]`,
  s:[['Hint',String.raw`You want $\frac{dr}{dt}$. You know $\frac{dA}{dt}$. Link them with the area formula $A=\pi r^2$.`],
  ['Working: link',String.raw`$\frac{dA}{dr}=2\pi r$, and $\frac{dA}{dt}=\frac{dA}{dr}\times\frac{dr}{dt}$.`],
  ['Working: substitute',String.raw`$12=2\pi(3)\times\frac{dr}{dt}=6\pi\frac{dr}{dt}$.`],
- ['Working: answer',String.raw`$\frac{dr}{dt}=\frac{12}{6\pi}=\frac2\pi\approx0.637$ cm/s.`]]}];
+ ['Working: answer',String.raw`$\frac{dr}{dt}=\frac{12}{6\pi}=\frac2\pi\approx0.637$ cm/s.`]]},
+{t:'Example 4 · Stretch: two layers and the quotient rule (from the video)',m:4,q:String.raw`Differentiate $y=\tan\!\left(\dfrac{t}{1+t^2}\right)$ with respect to $t$. [4 marks]`,
+ s:[['Hint',String.raw`Two layers: $\tan$ on the outside, the fraction on the inside. Differentiate $\tan$ first and copy the fraction. The inside needs the quotient rule, which is in the formulae booklet.`],
+ ['Working: outside',String.raw`$\tan\to\sec^2$, so we get $\sec^2\!\left(\frac{t}{1+t^2}\right)$. Copy the inside.`],
+ ['Working: the inside by the quotient rule',String.raw`$\frac{d}{dt}\frac{t}{1+t^2}=\frac{(1+t^2)(1)-t(2t)}{(1+t^2)^2}=\frac{1-t^2}{(1+t^2)^2}$.`],
+ ['Working: multiply',String.raw`$\frac{dy}{dt}=\frac{1-t^2}{(1+t^2)^2}\sec^2\!\left(\frac{t}{1+t^2}\right)$.`]]}
+];
 $('#examples').insertAdjacentHTML('beforeend',EX.map((e,i)=>`<details class="bg-white rounded-lg border border-slate-200" data-ex="${i}"><summary class="ui flex items-center gap-3 p-4 font-semibold text-indigo-950"><span class="chev text-indigo-500">▶</span>${e.t}<span class="ml-auto text-xs font-normal text-slate-500">${e.m} marks</span></summary><div class="px-5 pb-5"><div class="bg-slate-50 border border-slate-200 rounded p-3 mb-3 leading-relaxed">${e.q}</div><div class="stepper"></div></div></details>`).join(''));
 $$('#examples details').forEach(d=>stepper(d.querySelector('.stepper'),EX[+d.dataset.ex].s));
 function stepper(host,steps){host.innerHTML=`<div class="steps space-y-2"></div><div class="ui flex gap-2 mt-3"><button class="next rounded-md bg-indigo-900 text-white px-4 py-2 text-sm">Show next step</button><button class="reset rounded-md border border-slate-300 px-4 py-2 text-sm">Start again</button></div>`;
@@ -493,7 +445,7 @@ $$('.tab').forEach(t=>{t.setAttribute('role','tab');t.onclick=()=>goTab(t.datase
 const PK='fm9ma0-prefs';let PR={};try{PR=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}
 function prefs(){document.documentElement.style.fontSize=PR.big?'125%':'';document.body.classList.toggle('dark',!!PR.dark);document.body.classList.toggle('hc',!!PR.hc&&!PR.dark);$('#tdk').setAttribute('aria-pressed',String(!!PR.dark));$('#tdk').textContent=PR.dark?'Light mode':'Dark mode';$('#tsz').setAttribute('aria-pressed',String(!!PR.big));$('#tsz').textContent=PR.big?'Smaller text':'Larger text';$('#thc').setAttribute('aria-pressed',String(!!PR.hc));$('#thc').textContent=PR.hc?'Standard contrast':'High contrast';try{localStorage.setItem(PK,JSON.stringify(PR))}catch(e){}}
 $('#tsz').onclick=()=>{PR.big=!PR.big;prefs()};$('#thc').onclick=()=>{PR.hc=!PR.hc;prefs()};$('#tdk').onclick=()=>{PR.dark=!PR.dark;prefs()};
-window.addEventListener('load',()=>{if(PR.dark===undefined)PR.dark=false;ty(document.body);prefs();W.gear.draw();newQ();newSpot();stats();report()});
+window.addEventListener('load',()=>{if(PR.dark===undefined)PR.dark=false;ty(document.body);prefs();newQ();newSpot();stats();report()});
 window.addEventListener('resize',()=>drawAll($('#cards')));
 </script>
 </body>
