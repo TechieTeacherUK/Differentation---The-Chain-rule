@@ -242,7 +242,21 @@ pow:[
 {q:String.raw`<b>Worked example 3.</b> Differentiate $y=\sqrt{4x^2+9}$.`,s:[
  ['Step 1: write as a power',String.raw`$y=(${I('4x^2+9')})^{${O('1/2')}}$, and the inside has derivative $8x$.`],
  ['Step 2: outside, then inside',String.raw`$\frac12(4x^2+9)^{-1/2}\times8x$.`],
- ['Step 3: tidy',String.raw`$\frac{dy}{dx}=\frac{4x}{\sqrt{4x^2+9}}$.`]]}],
+ ['Step 3: tidy',String.raw`$\frac{dy}{dx}=\frac{4x}{\sqrt{4x^2+9}}$.`]]},
+{q:String.raw`<b>Worked example 4</b> (BBC Bitesize). Differentiate $y=(2x+4)^3$.`,s:[
+ ['Step 1: rewrite using $u$',String.raw`$y=${O('u^3')}$ where $u=${I('2x+4')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=3u^2$ and $\frac{du}{dx}=2$.`],
+ ['Step 3: use the chain rule',String.raw`$\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=3u^2\times2=6u^2$.`],
+ ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=6(2x+4)^2$.`]]},
+{q:String.raw`<b>Worked example 5</b> (BBC Bitesize). Differentiate $y=(2x^2+3x+4)^{1/2}$.`,s:[
+ ['Step 1: rewrite using $u$',String.raw`$y=${O('u^{1/2}')}$ where $u=${I('2x^2+3x+4')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=\frac12u^{-1/2}$ and $\frac{du}{dx}=4x+3$.`],
+ ['Step 3: use the chain rule',String.raw`$\frac{dy}{dx}=\frac12u^{-1/2}\times(4x+3)=\frac{4x+3}{2\sqrt u}$.`],
+ ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=\frac{4x+3}{2\sqrt{2x^2+3x+4}}$.`]]},
+{q:String.raw`<b>Worked example 6</b> (BBC Bitesize). Differentiate $y=(1+\sin x)^3$.`,s:[
+ ['Step 1: rewrite using $u$',String.raw`$y=${O('u^3')}$ where $u=${I('1+\\sin x')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=3u^2$ and $\frac{du}{dx}=\cos x$.`],
+ ['Step 3: multiply and put $u$ back',String.raw`$\frac{dy}{dx}=3u^2\cos x=3\cos x\,(1+\sin x)^2$.`]]}],
 std:[
 {q:String.raw`<b>Worked example 1</b> (mathcentre). Differentiate $y=\sin5x$.`,s:[
  ['Step 1: identify the layers',String.raw`Inner $u=${I('5x')}$, outer $y=${O('\\sin u')}$.`],
@@ -253,7 +267,16 @@ std:[
  ['Step 3: multiply all three',String.raw`$\frac{dy}{dx}=\cos(e^{x^2})\times e^{x^2}\times2x=2xe^{x^2}\cos(e^{x^2})$.`]]},
 {q:String.raw`<b>Worked example 3</b> (mathcentre). Differentiate $y=\ln(x+\sin x)$ and $y=\tan(x^2)$.`,s:[
  ['Step 1: the ln',String.raw`Inner $x+\sin x$, derivative $1+\cos x$. $\frac{dy}{dx}=\frac{1+\cos x}{x+\sin x}$.`],
- ['Step 2: the tan',String.raw`Inner $x^2$, derivative $2x$. $\tan\to\sec^2$, so $\frac{dy}{dx}=2x\sec^2(x^2)$.`]]}],
+ ['Step 2: the tan',String.raw`Inner $x^2$, derivative $2x$. $\tan\to\sec^2$, so $\frac{dy}{dx}=2x\sec^2(x^2)$.`]]},
+{q:String.raw`<b>Worked example 4</b> (BBC Bitesize). Differentiate $y=\sin(3x^2+4)$.`,s:[
+ ['Step 1: rewrite using $u$',String.raw`$y=${O('\\sin u')}$ where $u=${I('3x^2+4')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=\cos u$ and $\frac{du}{dx}=6x$.`],
+ ['Step 3: multiply and put $u$ back',String.raw`$\frac{dy}{dx}=\cos u\times6x=6x\cos(3x^2+4)$.`]]},
+{q:String.raw`<b>Worked example 5</b> (BBC Bitesize). Differentiate $y=(\sin2x)^2$.`,s:[
+ ['Step 1: rewrite using $u$',String.raw`$y=${O('u^2')}$ where $u=${I('\\sin2x')}$.`],
+ ['Step 2: differentiate each part',String.raw`$\frac{dy}{du}=2u$. For $\frac{du}{dx}$ we need the chain rule again: the derivative of $\sin2x$ is $2\cos2x$.`],
+ ['Step 3: multiply',String.raw`$\frac{dy}{dx}=2u\times2\cos2x=4u\cos2x$.`],
+ ['Step 4: put $u$ back',String.raw`$\frac{dy}{dx}=4\sin2x\cos2x$.`]]}],
 rate:[{q:String.raw`<b>Worked example.</b> A spherical balloon has volume $V=\frac43\pi r^3$. The radius grows at 0.2 cm/s. Find how fast the volume grows when $r=5$.`,s:[
  ['Step 1: what is given and wanted',String.raw`Given $\frac{dr}{dt}=0.2$. Wanted $\frac{dV}{dt}$ when $r=5$.`],
  ['Step 2: link them',String.raw`$\frac{dV}{dr}=4\pi r^2$, and $\frac{dV}{dt}=\frac{dV}{dr}\times\frac{dr}{dt}$.`],
@@ -277,7 +300,7 @@ const EX=[
  ['Working: outside',String.raw`$\tan\to\sec^2$, so we get $\sec^2\!\left(\frac{t}{1+t^2}\right)$. Copy the inside.`],
  ['Working: the inside by the quotient rule',String.raw`$\frac{d}{dt}\frac{t}{1+t^2}=\frac{(1+t^2)(1)-t(2t)}{(1+t^2)^2}=\frac{1-t^2}{(1+t^2)^2}$.`],
  ['Working: multiply',String.raw`$\frac{dy}{dt}=\frac{1-t^2}{(1+t^2)^2}\sec^2\!\left(\frac{t}{1+t^2}\right)$.`]]},
-{t:'Example 2 · Several functions of a function (mathcentre style)',m:6,q:String.raw`Differentiate each by inspection: (a) $y=(2-x^5)^9$ [2] (b) $y=\ln(x+\sin x)$ [2] (c) $y=\sin(x+e^x)$ [2]`,
+{t:'Example 2 · Several functions of a function (mathcentre style)',m:6,q:String.raw`Differentiate each by inspection.<br>(a) $y=(2-x^5)^9$ [2 marks]<br>(b) $y=\ln(x+\sin x)$ [2 marks]<br>(c) $y=\sin(x+e^x)$ [2 marks]`,
  s:[['Hint for (a)',String.raw`Inside is $2-x^5$. Outside is "to the power 9".`],
  ['Working for (a)',String.raw`$9(2-x^5)^8\times(-5x^4)=-45x^4(2-x^5)^8$.`],
  ['Hint for (b)',String.raw`Outside is $\ln$, which gives "one over the inside". Multiply by the derivative of the inside.`],
