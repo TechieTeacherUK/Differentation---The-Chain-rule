@@ -185,8 +185,8 @@ const TH=[
 ['rules','Step 2: what to do with them',String.raw`<p>Use the chain rule: <b>differentiate the outside, copy the inside, then multiply by the derivative of the inside.</b></p>
 $$\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}\qquad\text{where }u=\text{the inner function}$$
 <ol class="list-decimal ml-5 space-y-1 mt-1"><li><b>Start on the outside and work in.</b> Differentiate the outer function first. With three layers, do one layer at a time.</li><li><b>Do not touch the inside.</b> Copy the inner function exactly as it is while you differentiate the outer one.</li><li><b>Chain (multiply)</b> by the derivative of the inner function.</li><li><b>Tidy up.</b> Put the extra factor at the front, and do not multiply out brackets.</li></ol>
-<p>There are two ways to write the same thing. Examples 1 to 3 below use the video's outside-in method. Examples 4 and 5 give the inside a name, $u$, as BBC Bitesize and mathcentre do. Use whichever feels clearer.</p>
-<p>Example: $y=\sin(${I('e^x')})$ has outer $\sin$ and inner $e^x$. So $\frac{dy}{dx}=\cos(e^x)\times e^x$.</p>`,''],
+<p class="mt-3">There are two ways to write the same thing. Examples 1 to 3 below use the video's outside-in method. Examples 4 and 5 give the inside a name, $u$, as BBC Bitesize and mathcentre do. Use whichever feels clearer.</p>
+<p class="mt-2">Example: $y=\sin(${I('e^x')})$ has outer $\sin$ and inner $e^x$. So $\frac{dy}{dx}=\cos(e^x)\times e^x$.</p>`,''],
 ['recall','Step 3: reminder, what the common functions differentiate to',String.raw`<p>The outer function is always one of these. Learn them. The "something" is the inside, which you copy.</p>
 <div class="overflow-x-auto"><table class="ui w-full text-sm border border-slate-300 mt-2"><thead><tr class="bg-slate-50"><th class="p-2 text-left">Outer function</th><th class="p-2 text-left">Differentiates to</th><th class="p-2 text-left">Then multiply by</th></tr></thead><tbody>
 <tr class="border-t border-slate-200"><td class="p-2">$(\text{something})^n$</td><td class="p-2">$n(\text{something})^{n-1}$</td><td class="p-2">derivative of the something</td></tr>
@@ -322,9 +322,9 @@ GEN.t2.push(()=>{const k=pick([2,3,4]),c=pick([1,2,3]);
  steps:[String.raw`Differentiate term by term.`,String.raw`$\frac{d}{dx}${c}e^{${k}x}=${c*k}e^{${k}x}$ and $\frac{d}{dx}\ln(${k}x+1)=\frac{${k}}{${k}x+1}$.`]}});
 // ---- Exam mastery ----
 GEN.t3.push(()=>{const a=pick([1,2,3]);
- return{tp:'std',q:String.raw`Differentiate $y=e^{x^2+${a}x}$. Type it like (2x+1)e^(x^2+x).`,fn:x=>(2*x+a)*Math.exp(x*x+a*x),lo:0,at:String.raw`(2x+${a})e^{x^2+${a}x}`,
+ const ax=a===1?'x':a+'x';return{tp:'std',q:String.raw`Differentiate $y=e^{x^2+${ax}}$. Type it like (2x+1)e^(x^2+x).`,fn:x=>(2*x+a)*Math.exp(x*x+a*x),lo:0,at:String.raw`(2x+${a})e^{x^2+${ax}}`,
  alts:[{fn:x=>Math.exp(x*x+a*x),msg:String.raw`You forgot the derivative of the inside, $2x+${a}$.`}],
- steps:[String.raw`Inside $f=x^2+${a}x$, with $f'=2x+${a}$.`,String.raw`$\frac{dy}{dx}=f'e^{f}=(2x+${a})e^{x^2+${a}x}$.`]}});
+ steps:[String.raw`Inside $f=x^2+${ax}$, with $f'=2x+${a}$.`,String.raw`$\frac{dy}{dx}=f'e^{f}=(2x+${a})e^{x^2+${ax}}$.`]}});
 GEN.t3.push(()=>{const a=pick([2,3,4]),b=pick([1,5,9]);
  return{tp:'pow',q:String.raw`Differentiate $y=\sqrt{${a}x^2+${b}}$. Type it like 3x/sqrt(3x^2+1).`,fn:x=>a*x/Math.sqrt(a*x*x+b),lo:0,at:String.raw`\frac{${a}x}{\sqrt{${a}x^2+${b}}}`,
  alts:[{fn:x=>2*a*x/Math.sqrt(a*x*x+b),msg:String.raw`You lost the $\frac12$ from the power. $\frac12\times${2*a}x=${a}x$.`}],
